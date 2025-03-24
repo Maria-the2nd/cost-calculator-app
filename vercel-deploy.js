@@ -1,6 +1,6 @@
 // This file is a marker for Vercel to ensure it deploys the latest version
 console.log('Deploying latest version with timestamp:', new Date().toISOString());
-console.log('Version: July 2024 (Rev. 2 - LATEST UPDATE)');
+console.log('Version: July 2024 (Rev. 2 - LATEST UPDATE - FORCED REBUILD)');
 
 // Make sure environment variables are available
 console.log('Checking environment variables:');
