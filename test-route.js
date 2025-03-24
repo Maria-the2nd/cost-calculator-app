@@ -1,5 +1,6 @@
 const ORIGIN = 'Estrada de S. Marcos, nº 11, 2735-521 Cacém';
-const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+// Use environment variable with fallback for the API key
+const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyDjcIn9k0AxNkWvL9hRDf4LJcJi17i3LAY';
 
 /**
  * Calculate distance between origin and a given postal code
@@ -8,6 +9,9 @@ const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
  */
 async function calculateDistance(postalCode) {
   try {
+    console.log('🔄 Calculating distance for postal code:', postalCode);
+    console.log('🔑 API Key (first 10 chars):', API_KEY ? API_KEY.substring(0, 10) + '...' : 'NOT SET');
+    
     const destination = `${postalCode}, Portugal`;
 
     const response = await fetch('https://routes.googleapis.com/directions/v2:computeRoutes', {
