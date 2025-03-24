@@ -5,9 +5,9 @@
   "installCommand": "npm install",
   "framework": "nextjs",
   "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "@next_public_supabase_url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@next_public_supabase_anon_key",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
-    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": "@next_public_google_maps_api_key"
+    "NEXT_PUBLIC_SUPABASE_URL": "https://clolnikizfjkvhgjfxce.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsb2xuaWtpemZqa3ZoZ2pmeGNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIzOTkwMjMsImV4cCI6MjA1Nzk3NTAyM30.FxkqpedcFri4G2pJS_EVVlvJbhGKAHaNvtkCIftPfTo",
+    "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsb2xuaWtpemZqa3ZoZ2pmeGNlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjM5OTAyMywiZXhwIjoyMDU3OTc1MDIzfQ.IoXVC-W_HrXZxpMqk7HWS1rhlOfVNmqgsvXmX8w3RSo",
+    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyDjcIn9k0AxNkWvL9hRDf4LJcJi17i3LAY"
   }
 } 
