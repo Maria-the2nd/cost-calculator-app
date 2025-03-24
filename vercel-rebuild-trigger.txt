@@ -1,0 +1,6 @@
+FORCE VERCEL REBUILD
+Timestamp: 2024-07-23T15:45:00.000Z
+Version: July 2024 (Rev. 2 - FORCE REBUILD)
+
+This file exists solely to trigger a full rebuild on Vercel when needed.
+Each time we need to force a rebuild, simply update the timestamp above. 
