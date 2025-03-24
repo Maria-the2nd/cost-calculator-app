@@ -542,7 +542,7 @@ export default function Home() {
       <main className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800">Calculadora de Custos</h1>
-          <div className="text-xs text-gray-500">Versão: Julho 2024 (Rev. 2)</div>
+          <div className="text-xs text-gray-500">Versão: Julho 2024 (Rev. 2 - LATEST UPDATE)</div>
         </div>
         
         {/* Simple Project Search and New Project button */}
