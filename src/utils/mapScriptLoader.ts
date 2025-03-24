@@ -4,8 +4,8 @@
 let isLoaded = false;
 let loadPromise: Promise<void> | null = null;
 
-// Google Maps API Key provided by user
-const GOOGLE_MAPS_API_KEY = 'AIzaSyDjcIn9k0AxNkWvL9hRDf4LJcJi17i3LAY';
+// Google Maps API Key from environment variables
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 // Define required libraries
 const REQUIRED_LIBRARIES = ['places', 'geometry', 'directions', 'distance_matrix'];
