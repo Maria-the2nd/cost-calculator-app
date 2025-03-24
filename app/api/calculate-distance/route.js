@@ -1,6 +1,6 @@
 // API endpoint for distance calculation
 import { NextResponse } from 'next/server';
-import { calculateDistance } from '../../../test-route';
+import { DistanceCalculator } from '@/utils/distanceCalculator';
 
 export async function POST(request) {
   console.log('API endpoint called: /api/calculate-distance');
@@ -15,7 +15,8 @@ export async function POST(request) {
       );
     }
 
-    const distance = await calculateDistance(postalCode);
+    const calculator = new DistanceCalculator();
+    const distance = await calculator.calculateDistance(postalCode);
     
     return NextResponse.json({ 
       distance,
