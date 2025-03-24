@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { TechnicalVisitForm } from './components/forms/TechnicalVisitForm';
 import { ImplementationForm } from './components/forms/ImplementationForm';
 import { ClientInfoForm } from './components/forms/ClientInfoForm';
@@ -531,18 +532,26 @@ export default function Home() {
   }, [clientId, clientName, phcId, projectName, isLoading]);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <header className="bg-gray-900 border-b border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-2xl font-bold text-orange-500">Calculadora de Custos</h1>
-          <div className="flex items-center justify-between">
-            <p className="text-gray-400 mt-1">Calcule custos de visitas técnicas e implementações</p>
-            <div className="px-3 py-1 bg-green-800 text-white rounded text-xs font-bold">VERSÃO JULHO 2024 FINAL</div>
+    <main className="min-h-screen p-6 bg-gray-100">
+      {/* Direct Navigation Menu */}
+      <div className="bg-gray-900 text-white mb-6 -mx-6 px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div className="font-bold text-orange-500 text-xl">Calculadora de Custos</div>
+          <div className="flex space-x-4">
+            <Link href="/" className="px-3 py-1 bg-orange-600 text-white rounded">
+              Calculadora
+            </Link>
+            <Link href="/tabela" className="px-3 py-1 text-gray-300 hover:bg-gray-700 rounded">
+              Tabela
+            </Link>
+            <Link href="/empresas" className="px-3 py-1 text-gray-300 hover:bg-gray-700 rounded">
+              Empresas
+            </Link>
           </div>
         </div>
-      </header>
-      
-      <main className="container mx-auto px-4 py-8">
+      </div>
+
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800">Calculadora de Custos</h1>
           <div className="text-xs text-gray-500">Versão: Julho 2024 (Rev. 2 - LATEST UPDATE)</div>
@@ -659,13 +668,7 @@ export default function Home() {
             <div className="mt-4 p-4 bg-red-800 text-red-100 rounded-lg">{errorMessage}</div>
           )}
         </div>
-      </main>
-      
-      <footer className="bg-gray-900 border-t border-gray-800 mt-12">
-        <div className="container mx-auto px-4 py-6">
-          <p className="text-gray-400 text-center">© 2025 Calculadora de Custos</p>
-        </div>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 } 
