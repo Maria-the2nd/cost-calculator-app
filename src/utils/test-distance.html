@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distance Calculator Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-case {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Distance Calculator Test</h1>
+    <div id="results"></div>
+
+    <script>
+        const ORIGIN_ADDRESS = 'Estrada de S. Marcos, nº 11, 2735-521 Cacém';
+        const API_KEY = 'AIzaSyDjcIn9k0AxNkWvL9hRDf4LJcJi17i3LAY';
+
+        async function testDistanceCalculator() {
+            const resultsDiv = document.getElementById('results');
+            
+            // Test postal codes
+            const testCases = [
+                '2735-521',  // Cacém (origin)
+                '1000-001',  // Lisboa
+                '4000-001',  // Porto
+                '8000-001',  // Faro
+            ];
+
+            for (const postalCode of testCases) {
+                const testCaseDiv = document.createElement('div');
+                testCaseDiv.className = 'test-case';
+                testCaseDiv.innerHTML = `<h3>Testing postal code: ${postalCode}</h3>`;
+                resultsDiv.appendChild(testCaseDiv);
+
+                try {
+                    // Format the destination
+                    const destination = `${postalCode}, Portugal`;
+
+                    // First, geocode the postal code
+                    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(destination)}&key=${API_KEY}`;
+                    const geocodeResponse = await fetch(geocodeUrl);
+                    const geocodeData = await geocodeResponse.json();
+
+                    if (!geocodeData.results || geocodeData.results.length === 0) {
+                        throw new Error('Could not geocode the postal code');
+                    }
+
+                    // Calculate distance using Distance Matrix
+                    const distanceUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${encodeURIComponent(ORIGIN_ADDRESS)}&destinations=${encodeURIComponent(geocodeData.results[0].formatted_address)}&mode=driving&key=${API_KEY}`;
+                    const distanceResponse = await fetch(distanceUrl);
+                    const distanceData = await distanceResponse.json();
+
+                    if (distanceData.rows[0].elements[0].status === 'OK') {
+                        const distanceInKm = distanceData.rows[0].elements[0].distance.value / 1000;
+                        testCaseDiv.innerHTML += `
+                            <p class="success">✅ Distance calculated: ${distanceInKm.toFixed(1)} km</p>
+                            <p>📍 From: ${ORIGIN_ADDRESS}</p>
+                            <p>📍 To: ${geocodeData.results[0].formatted_address}</p>
+                        `;
+                    } else {
+                        throw new Error('Distance calculation failed');
+                    }
+                } catch (err) {
+                    testCaseDiv.innerHTML += `<p class="error">❌ Error: ${err.message}</p>`;
+                }
+            }
+        }
+
+        // Run the test when the page loads
+        window.onload = testDistanceCalculator;
+    </script>
+</body>
+</html> 
