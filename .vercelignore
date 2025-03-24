@@ -1,0 +1,5 @@
+.cursor/
+.git/
+archived-files/
+archive/
+node_modules/ 
