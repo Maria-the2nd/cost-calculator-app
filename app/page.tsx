@@ -532,10 +532,10 @@ export default function Home() {
   }, [clientId, clientName, phcId, projectName, isLoading]);
 
   return (
-    <main className="min-h-screen p-6 bg-gray-100">
+    <main className="min-h-screen bg-gray-950 text-white">
       {/* Direct Navigation Menu */}
-      <div className="bg-gray-900 text-white mb-6 -mx-6 px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="bg-gray-900 border-b border-gray-800 px-4 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="font-bold text-orange-500 text-xl">Calculadora de Custos</div>
           <div className="flex space-x-4">
             <Link href="/" className="px-3 py-1 bg-orange-600 text-white rounded">
@@ -551,9 +551,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto px-4 py-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Calculadora de Custos</h1>
+          <h1 className="text-3xl font-bold text-gray-300">Calculadora de Custos</h1>
           <div className="text-xs text-gray-500">Versão: Julho 2024 (Rev. 2 - LATEST UPDATE)</div>
         </div>
         
