@@ -535,7 +535,10 @@ export default function Home() {
       <header className="bg-gray-900 border-b border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-2xl font-bold text-orange-500">Calculadora de Custos</h1>
-          <p className="text-gray-400 mt-1">Calcule custos de visitas técnicas e implementações</p>
+          <div className="flex items-center justify-between">
+            <p className="text-gray-400 mt-1">Calcule custos de visitas técnicas e implementações</p>
+            <div className="px-3 py-1 bg-green-800 text-white rounded text-xs font-bold">VERSÃO JULHO 2024 FINAL</div>
+          </div>
         </div>
       </header>
       
